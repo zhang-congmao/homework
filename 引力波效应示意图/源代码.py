@@ -10,8 +10,8 @@ plt.rcParams['axes.unicode_minus']=False # 用来正常显示负号
 def update_plus_case(frame):
     global x, y, x_0, y_0
     t = frame * dt
-    x = x_0 - 0.5 * h_0 * np.sin(t) * x_0
-    y = y_0 + 0.5 * h_0 * np.sin(t) * y_0
+    x = x_0 + 0.5 * h_0 * np.sin(t) * x_0
+    y = y_0 - 0.5 * h_0 * np.sin(t) * y_0
     # 更新散点图
     scat_plus.set_offsets(np.c_[x, y])
     return scat_plus,
@@ -19,12 +19,11 @@ def update_plus_case(frame):
 def update_cross_case(frame):
     global x, y, x_0, y_0
     t = frame * dt
-    x = x_0 - 0.5 * h_0 * np.sin(t) * y_0
-    y = y_0 - 0.5 * h_0 * np.sin(t) * x_0
+    x = x_0 + 0.5 * h_0 * np.sin(t) * y_0
+    y = y_0 + 0.5 * h_0 * np.sin(t) * x_0
     # 更新散点图
     scat_cross.set_offsets(np.c_[x, y])
     return scat_cross,
-
 
 
 # 初始设置
